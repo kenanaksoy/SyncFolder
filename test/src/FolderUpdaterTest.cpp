@@ -40,7 +40,7 @@ TEST_F(FileCopyTest,CopiesFilesInRoot_IfNotExist)
 	EXPECT_CALL(*file, CopyTo("C:\\Target folder\\filename")).Times(AtLeast(1));
 	EXPECT_CALL(*file, GetPath()).WillRepeatedly(Return("C:\\Source folder\\filename"));
 	EXPECT_CALL(source, GetFiles()).WillRepeatedly(Return(files));
-	EXPECT_CALL(dest, GetPath()).WillRepeatedly(Return("C:\\Target folder\\"));
+	EXPECT_CALL(dest, GetPath()).WillRepeatedly(Return("C:\\Target folder"));
 	
 	SyncFolder(dest, source);
 

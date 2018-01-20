@@ -2,6 +2,9 @@ cmake_minimum_required (VERSION 3.5)
 project(KenanFileCopyTest)
 
 set (GMOCK_PATH "" CACHE STRING "")
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTOMOC ON)
+find_package(Qt5Core)
 
 link_directories("${GMOCK_PATH}/lib64")
 
@@ -17,4 +20,4 @@ file(GLOB PROJECT_HEADER_FILES ../FolderUpdater/include/*.h)
 add_executable(KenanFileCopyTest ${TEST_FILES} ${PROJECT_HEADER_FILES} ${PROJECT_SOURCE_FILES})
 
 target_include_directories(KenanFileCopyTest PRIVATE "${GMOCK_PATH}/include" PRIVATE "../FolderUpdater/include")
-target_link_libraries(KenanFileCopyTest gmock)
+target_link_libraries(KenanFileCopyTest gmock Qt5::Core)
